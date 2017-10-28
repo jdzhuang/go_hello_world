@@ -5,12 +5,13 @@ import (
 )
 
 type SliceDemo struct {
+	Demo
 }
 
-func (d SliceDemo) String() string {
-	return "Slice"
+func NewSliceDemo() *SliceDemo {
+	return &SliceDemo{ Demo{"slice", "pointer of array."} }
 }
 
 func (d SliceDemo) Do() {
-	fmt.Println("slicing.")
+	fmt.Println("slicing...")
 }

@@ -5,10 +5,11 @@ import (
 )
 
 type PointerDemo struct {
+	Demo
 }
 
-func (d PointerDemo) String() string {
-	return "Pointer"
+func NewPointerDemo() *PointerDemo {
+	return &PointerDemo{ Demo{"pointer", "typical pointer concept."} }
 }
 
 func (d PointerDemo) Do() {

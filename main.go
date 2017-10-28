@@ -9,9 +9,9 @@ var gDemos []IDemo
 
 func init() {
 	gDemos = []IDemo{
-		PointerDemo{},
-		SliceDemo{},
-		VoidDemo{},
+		NewDemo(TPointer),
+		NewDemo(TSlice),
+		NewDemo(TVoid),
 	}
 }
 
@@ -30,8 +30,8 @@ func main() {
 	defer onPanic()
 
 	for i, v := range gDemos {
-		fmt.Printf("==demo[%d]=> %s\n", i, v)
+		fmt.Printf("[%d] %s===\n", i, v)
 		v.Do()
-
 	}
+
 }

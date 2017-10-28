@@ -1,16 +1,37 @@
 package main
+import(
+	"fmt"
+)
 
 type IDemo interface {
 	Do()
 }
 
-type VoidDemo struct {
+type DemoType int
+const (
+	TVoid DemoType = iota
+	TPointer
+	TSlice
+)
+func NewDemo(t DemoType) IDemo {
+	switch t {
+	case TPointer: return NewPointerDemo()
+	case TSlice: return NewSliceDemo()
+	default: return &Demo{"void","abstract demo."}
+	}
 }
 
-func (d VoidDemo) String() string {
-	return "void"
+
+type Demo struct {
+	name, desc string
 }
 
-func (d VoidDemo) Do() {
+func (d Demo) String() string {
+	return fmt.Sprintf("%s #%s",d.name, d.desc)
+}
+
+func (d Demo) Do() {
 	panic("not implemented")
 }
+
+
