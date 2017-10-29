@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"runtime"
+	"strconv"
 )
 
 var gDemos []IDemo
@@ -10,7 +11,10 @@ var gDemos []IDemo
 func init() {
 	gDemos = []IDemo{
 		NewDemo(TPointer),
+		NewDemo(TArray),
 		NewDemo(TSlice),
+		NewDemo(TMap),
+		NewDemo(TType),
 		NewDemo(TVoid),
 	}
 }
@@ -26,12 +30,24 @@ func onPanic() {
 	}
 }
 
+func showOpt() (int,error) {
+	fmt.Println("====OPTIONS===")
+	for i, v := range gDemos {
+		fmt.Printf("[%d] %s\n", i, v)
+	}
+	fmt.Printf("opt? ")
+	var o string
+	fmt.Scan(&o)
+	return strconv.Atoi(o)
+}
+
 func main() {
 	defer onPanic()
 
-	for i, v := range gDemos {
-		fmt.Printf("[%d] %s===\n", i, v)
-		v.Do()
+	for opt,err := showOpt(); err==nil &&opt < len(gDemos); {
+		fmt.Println("====", gDemos[opt], "====")
+		gDemos[opt].Do()
+		opt, err = showOpt(); 
 	}
 
 }
