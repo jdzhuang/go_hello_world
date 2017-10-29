@@ -4,19 +4,20 @@ import (
 	"fmt"
 	"runtime"
 	"strconv"
+	"./demo"
 )
 
-var gDemos []IDemo
+var gDemos []demo.IDemo
 
 func init() {
-	gDemos = []IDemo{
-		NewDemo(TVoid),
-		NewDemo(TPointer),
-		NewDemo(TArray),
-		NewDemo(TSlice),
-		NewDemo(TMap),
-		NewDemo(TType),
-		NewDemo(TConcurrency),
+	gDemos = []demo.IDemo{
+		demo.NewDemo(demo.TVoid),
+		demo.NewDemo(demo.TPointer),
+		demo.NewDemo(demo.TArray),
+		demo.NewDemo(demo.TSlice),
+		demo.NewDemo(demo.TMap),
+		demo.NewDemo(demo.TType),
+		demo.NewDemo(demo.TConcurrency),
 	}
 }
 
