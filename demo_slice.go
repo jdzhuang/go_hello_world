@@ -51,7 +51,7 @@ func (d SliceDemo) Do() {
 	printSlice(slc, "make([]int, 0, 5)" )
 	slc = make([]int, 5 )
 	printSlice(slc, "make([]int, 5)" )  //equivalent to 'make([]int, 5, 5)'
-	
+
 	//NOTE: slices of slices
 	var slcs [][]int = [][]int{
 		[]int{0,1,0,1},

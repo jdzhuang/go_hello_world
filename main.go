@@ -10,12 +10,13 @@ var gDemos []IDemo
 
 func init() {
 	gDemos = []IDemo{
+		NewDemo(TVoid),
 		NewDemo(TPointer),
 		NewDemo(TArray),
 		NewDemo(TSlice),
 		NewDemo(TMap),
 		NewDemo(TType),
-		NewDemo(TVoid),
+		NewDemo(TConcurrency),
 	}
 }
 

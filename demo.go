@@ -15,6 +15,7 @@ const (
 	TSlice
 	TType
 	TMap
+	TConcurrency
 )
 func NewDemo(t DemoType) IDemo {
 	switch t {
@@ -23,6 +24,7 @@ func NewDemo(t DemoType) IDemo {
 	case TSlice: return NewSliceDemo()
 	case TMap: return NewMapDemo()
 	case TType: return NewTypeDemo()
+	case TConcurrency: return NewConcurrencyDemo()
 	default: return &Demo{"void","abstract demo."}
 	}
 }
